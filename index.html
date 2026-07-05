@@ -121,6 +121,7 @@
   .swatch{width:12px;height:12px;border-radius:4px}
   .sw-ref{background:var(--ref)}
   .sw-find{background:var(--find)}
+  .sw-done{background:var(--ok)}
 
   /* ---------- Chapter ---------- */
   .chapter{padding:66px 0 20px}
@@ -163,6 +164,14 @@
   .tag-ref::before{background:var(--ref)}
   .tag-find{background:var(--find-soft);color:var(--find)}
   .tag-find::before{background:var(--find)}
+  .tag-done{background:var(--ok);color:#fff}
+  .tag-done::before{background:#fff}
+  .item.done{opacity:.92}
+  .item.done .item-top{background:linear-gradient(180deg,#f2faf4,#eef7f0)}
+  .item.done .item-icon{background:#e2f2e6;border-color:#bfe0c9}
+  .item.done .item-icon svg{stroke:var(--ok)}
+  .done-banner{display:flex;align-items:center;gap:9px;background:#eef7f0;border:1px solid #bfe0c9;color:var(--ok);border-radius:12px;padding:11px 15px;font-size:13.5px;font-weight:600;margin-bottom:2px}
+  .done-banner svg{width:18px;height:18px;stroke:var(--ok);fill:none;flex:none}
 
   /* option block inside item */
   .options{padding:22px 24px;display:grid;gap:20px}
@@ -320,7 +329,7 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px">
       <div style="background:var(--find-soft);border:1px solid #f0d9b3;border-radius:12px;padding:14px 16px"><b style="color:var(--find)">1 · לתקן ספה/כיסא במרפסת</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">תיקון הפריט הקיים בחוץ</div></div>
       <div style="background:var(--find-soft);border:1px solid #f0d9b3;border-radius:12px;padding:14px 16px"><b style="color:var(--find)">2 · Amy — תליית טלוויזיה</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">לא לתלות בסלון עדיין!</div></div>
-      <div style="background:var(--ref-soft);border:1px solid #bfe0db;border-radius:12px;padding:14px 16px"><b style="color:var(--ref)">3 · להזמין מיטה</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">המזרן כבר קיים</div></div>
+      <div style="background:#eef7f0;border:1px solid #bfe0c9;border-radius:12px;padding:14px 16px"><b style="color:var(--ok)">✓ מיטה — טופל</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">המיטה טופלה/הוזמנה</div></div>
       <div style="background:var(--ref-soft);border:1px solid #bfe0db;border-radius:12px;padding:14px 16px"><b style="color:var(--ref)">4 · להזמין ספה</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">צ׳סטרפילד ירוק/אוף-וויט</div></div>
     </div>
     <div style="margin-top:14px;font-size:13.5px;color:var(--muted-text)">סלון: בשלב זה רק <b>ספה</b>. שאר הסלון — בהמשך.</div>
@@ -331,6 +340,7 @@
 <div class="legend">
   <div class="lg"><span class="swatch sw-ref"></span> אפשרות ייחוס — סופקה על ידי המזמין</div>
   <div class="lg"><span class="swatch sw-find"></span> למצוא / לאמת — פעולה של העוזרת</div>
+  <div class="lg"><span class="swatch sw-done"></span> טופל — הושלם / נסגר</div>
   <div class="lg">📐 כל השדות חובה: אספקה · מחיר · משלוח · מידות · חנות · איסוף · תמונה</div>
 </div>
 
@@ -393,6 +403,7 @@ const DATA = [
     items:[
       {
         icon:'bed', title:'מיטה זוגית', sub:'המלצה מובילה: ACE Sol אוף-וויט (הכי מהיר). למטה 2 חלופות מאומתות:',
+        done:true, doneNote:'טופל — המיטה טופלה/הוזמנה. האפשרויות נשמרות למטה לעיון.',
         refCount:3, findCount:0,
         options:[
           { ref:true, badge:'★ מומלץ · ACE', name:'ACE — מיטה זוגית Sol, אוף-וויט (velvet רחיץ)',
@@ -415,13 +426,21 @@ const DATA = [
     id:'living', num:'02', title:'סלון — ספה', desc:'בשלב זה רק הספה. שאר הסלון (ספת אהבה, שטיח) — בהמשך.',
     items:[
       {
-        icon:'sofa', title:'ספה — צ׳סטרפילד בירוק/אוף-וויט', sub:'המטרה: בדיוק הדגם הזה — בירוק או אוף-וויט (לא חום), באספקה הכי מהירה. ⭐ פאלאס גלריה בהרצל 32 = הכי מהיר (1–14 יום).',
-        refCount:3, findCount:1,
+        icon:'sofa', title:'ספה — צ׳סטרפילד בירוק/אוף-וויט', sub:'המטרה: בדיוק הדגם הזה — בירוק או אוף-וויט (לא חום), באספקה הכי מהירה. 3 יצרנים מאומתים ברחוב הרצל ת״א: ⭐ פאלאס (הכי מהיר 1–14 יום) · המרפדיה (7–14) · לובלינר (14–21).',
+        refCount:5, findCount:1,
         options:[
           { ref:true, badge:'⭐ הכי מהיר · הרצל תל אביב', name:'פאלאס גלריה — צ׳סטרפילד בהתאמה אישית, ירוק/אוף-וויט',
             note:'✅ הפתרון לדרישה שלך: מפעל בית מלאכה בהרצל 32 תל אביב, מייצר צ׳סטרפילד “בדיוק” מתמונה, בכל צבע קטיפה/בד — כולל ירוק ואוף-וויט. 📞/WhatsApp 052-3914344 · galit1hakim@gmail.com. 25% מקדמה, 75% באספקה.',
             image:'palace-sofa.jpg', leadTime:'1–14 ימי עסקים (מאומת — הכי מהיר)', price:'לפי הצעת מחיר (התאמה אישית)', delivery:'משלוח ארצי (לתאם)', size:'לפי המידה שלך בדיוק (מותאם אישית)', store:'פאלאס גלריה · הרצל 32 ת״א', pickup:'כן — מהרצל 32 (לתאם)', phone:'052-3914344 (טל/WhatsApp · גלית)',
             link:'https://www.palace-g.co.il' },
+          { ref:true, badge:'#2 מהיר · הרצל 64 ת״א', name:'המרפדיה — צ׳סטרפילד בהתאמה, ירוק/אוף-וויט',
+            note:'מרפדיה + חנות סלונים בהרצל 64 תל אביב. מייצרים צ׳סטרפילד בהתאמה אישית בכל בד/צבע — כולל ירוק ואוף-וויט. שני הכי מהיר בהרצל — 7–14 ימי עסקים. טל׳ 054-3285355.',
+            image:'', leadTime:'7–14 ימי עסקים (#2 הכי מהיר)', price:'לפי הצעת מחיר (התאמה אישית)', delivery:'משלוח ארצי (לתאם)', size:'לפי המידה שלך בדיוק (מותאם אישית)', store:'המרפדיה · הרצל 64 ת״א', pickup:'כן — מהרצל 64 (לתאם)', phone:'054-3285355 (המרפדיה)',
+            link:'https://easy.co.il/page/10046741' },
+          { ref:true, badge:'#3 מהיר · הרצל 45 ת״א', name:'רהיטי לובלינר — צ׳סטרפילד בהתאמה, ירוק/אוף-וויט',
+            note:'מפעל + חנות בהרצל 45 תל אביב. מייצרים צ׳סטרפילד בהתאמה אישית, ירוק/אוף-וויט זמין. אספקה 14–21 יום. טל׳ 03-6813304 / 073-7576912.',
+            image:'', leadTime:'14–21 ימים', price:'לפי הצעת מחיר (התאמה אישית)', delivery:'משלוח ארצי (לתאם)', size:'לפי המידה שלך בדיוק (מותאם אישית)', store:'רהיטי לובלינר · הרצל 45 ת״א', pickup:'כן — מהרצל 45 (לתאם)', phone:'03-6813304 / 073-7576912 (לובלינר)',
+            link:'https://www.lublinerltd.co.il/' },
           { ref:true, badge:'הדגם הרצוי · בננה שופס', name:'צ׳סטרפילד דגם אוריאן — תלת מושבית',
             note:'זה בדיוק הדגם — זמין בירוק ובאוף-וויט (בד SONA, ~68 גוונים). ⚠ 28 ימי עסקים — איטי יותר מפאלאס. רגליים V שחור/זהב (חינם). טל׳ 04-9031601.',
             image:'banana-orion.jpg', leadTime:'28 ימי עסקים (⚠ איטי)', price:'₪3,790', delivery:'הובלה + הרכבה ₪300 (מזומן למוביל)', size:'רוחב 200 × עומק 90 · גובה מושב 45 ס״מ', store:'Banana Shops · קיסריה', pickup:'כן — לשם 11 קיסריה, א׳–ה׳ 09:00–15:00 (בתיאום 24 ש׳)', phone:'04-9031601 (Banana Shops)',
@@ -450,13 +469,28 @@ const DATA = [
     ]
   },
   {
-    id:'others', num:'04', title:'משימות נוספות', desc:'Amy — תליית טלוויזיה (לא בסלון עדיין!).',
+    id:'others', num:'04', title:'משימות נוספות', desc:'Amy — תליית טלוויזיה (לא בסלון עדיין!). מגהץ — טופל.',
     items:[
       {
         icon:'tv', title:'Amy — תליית טלוויזיה', sub:'עדיפות 2 — לא לתלות בסלון עדיין!',
         refCount:0, findCount:1, service:true,
         options:[
           { find:true, name:'Amy — לתאם מועד תלייה', note:'לתאם עם Amy. לוודא סוג קיר ומתלה. ❗ לא לתלות את הטלוויזיה של הסלון בשלב זה.' }
+        ]
+      },
+      {
+        icon:'iron', title:'מגהץ (קיטור)', sub:'השוואה נמסרה והוכרעה — המלצה: Tefal Express Easy.',
+        done:true, doneNote:'טופל — נערכה השוואה בין 3 מגהצי קיטור. המלצה סופית: Tefal Express Easy SV6140E0 (הכי טוב לגיהוץ). חלופה למחיר/לחץ: Black+Decker BXSS2600E — ₪699.',
+        refCount:0, findCount:0,
+        options:[
+          { ref:true, badge:'🏆 המלצה · KSP', name:'Tefal Express Easy SV6140E0 — מגהץ קיטור',
+            note:'הכי מומלץ לאיכות גיהוץ: זריקת קיטור רצופה 120 גר׳/דק׳ + בוסט 380 גר׳/דק׳ (החזק ביותר), חימום 2 דק׳ (הכי מהיר), מגהץ קל 1.3 ק״ג, מיכל 1.7 ל׳ נשלף, כיבוי אוטומטי.',
+            image:'', leadTime:'מידי — במלאי KSP', price:'לפי KSP (בדוק באתר)', delivery:'משלוח/איסוף KSP', size:'2200W · 6 באר · מיכל 1.7 ל׳', store:'KSP', pickup:'כן — סניפי KSP', phone:'מוקד KSP *3373',
+            link:'https://ksp.co.il/web/item/397122' },
+          { ref:true, badge:'חלופה למחיר · KSP', name:'Black+Decker BXSS2600E — מגהץ קיטור',
+            note:'הכי משתלם + הלחץ הגבוה ביותר: 2600W, 7 באר, 130 גר׳/דק׳, מיכל 1.5 ל׳, מנעד טפטוף, כיבוי אוטומטי.',
+            image:'', leadTime:'מידי — במלאי KSP', price:'₪699', delivery:'משלוח/איסוף KSP', size:'2600W · 7 באר · מיכל 1.5 ל׳', store:'KSP', pickup:'כן — סניפי KSP', phone:'מוקד KSP *3373',
+            link:'https://ksp.co.il/web/item/445247' }
         ]
       },
     ]
@@ -517,23 +551,30 @@ function optionCard(o, isService){
 }
 
 function itemCard(it){
+  const tagDone = it.done ? `<span class="tag tag-done"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>טופל</span>` : '';
   const tagRef = it.refCount>0 ? `<span class="tag tag-ref">${it.refCount} ייחוס</span>` : '';
   const tagFind = it.findCount>0 ? `<span class="tag tag-find">${it.findCount} למצוא היום</span>` : '';
+  const doneBanner = it.done ? `
+    <div class="done-banner">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+      <div>${it.doneNote||'טופל — הוזמן/נסגר'}</div>
+    </div>` : '';
   const opts = it.options.map(o=>optionCard(o, it.service)).join('');
   const findNote = it.findCount>0 ? `
     <div class="find-note">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
       <div><b>לביצוע היום:</b> למצוא ${it.findCount} אפשרויות ולמלא לכל אחת את כל השדות — זמן אספקה, מחיר, משלוח, מידות, חנות/ספק, איסוף עצמי (והאם/מתי) + תמונה גדולה וקישור.</div>
     </div>` : '';
-  return `<article class="item">
+  return `<article class="item ${it.done?'done':''}">
     <div class="item-top">
       <div class="lead">
         <div class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONS[it.icon]||''}</svg></div>
         <div><div class="item-title">${it.title}</div><div class="item-sub">${it.sub||''}</div></div>
       </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">${tagRef}${tagFind}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">${tagDone}${tagRef}${tagFind}</div>
     </div>
     <div class="options">
+      ${doneBanner}
       ${findNote}
       ${opts}
     </div>
