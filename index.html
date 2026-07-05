@@ -321,9 +321,9 @@
       <div style="background:var(--find-soft);border:1px solid #f0d9b3;border-radius:12px;padding:14px 16px"><b style="color:var(--find)">1 · לתקן ספה/כיסא במרפסת</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">תיקון הפריט הקיים בחוץ</div></div>
       <div style="background:var(--find-soft);border:1px solid #f0d9b3;border-radius:12px;padding:14px 16px"><b style="color:var(--find)">2 · Amy — תליית טלוויזיה</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">לא לתלות בסלון עדיין!</div></div>
       <div style="background:var(--ref-soft);border:1px solid #bfe0db;border-radius:12px;padding:14px 16px"><b style="color:var(--ref)">3 · להזמין מיטה</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">המזרן כבר קיים</div></div>
-      <div style="background:var(--ref-soft);border:1px solid #bfe0db;border-radius:12px;padding:14px 16px"><b style="color:var(--ref)">4 · להזמין מגהץ</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">רכישה מהירה</div></div>
+      <div style="background:var(--ref-soft);border:1px solid #bfe0db;border-radius:12px;padding:14px 16px"><b style="color:var(--ref)">4 · להזמין ספה</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">צ׳סטרפילד ירוק/אוף-וויט</div></div>
     </div>
-    <div style="margin-top:14px;font-size:13.5px;color:var(--muted-text)">סלון: בשלב זה רק <b>ספה</b> ו<b>כיסאות בר</b>. שאר הסלון — בהמשך.</div>
+    <div style="margin-top:14px;font-size:13.5px;color:var(--muted-text)">סלון: בשלב זה רק <b>ספה</b>. שאר הסלון — בהמשך.</div>
   </div>
 </div>
 
@@ -383,7 +383,8 @@ const SPEC_ICONS = {
   delivery:'<rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 9h4l3 3v5h-7"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/>',
   size:'<path d="M21 6H3"/><path d="M21 6v12"/><path d="M3 6v12"/><path d="M21 18H3"/><path d="M8 6v3"/><path d="M12 6v3"/><path d="M16 6v3"/>',
   store:'<path d="M3 9l1-5h16l1 5"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/><path d="M3 9h18"/>',
-  pickup:'<path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>'
+  pickup:'<path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+  phone:'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/>'
 };
 
 const DATA = [
@@ -396,22 +397,22 @@ const DATA = [
         options:[
           { ref:true, badge:'★ מומלץ · ACE', name:'ACE — מיטה זוגית Sol, אוף-וויט (velvet רחיץ)',
             note:'הדגם המדויק בצבע אוף-וויט (אופוויט), קטיפה רחיצה. ראש מיטה 117 ס״מ. הכי מהיר — 14 ימי עסקים בלבד + איסוף עצמי חינם. מבצע עד 2.7.26. טל׳ 079-3002400.',
-            image:'ace-sol-bed.jpg', leadTime:'14 ימי עסקים (הכי מהיר)', price:'₪1,932 במבצע (רגיל ₪2,280)', delivery:'משלוח + הרכבה ₪350', size:'160×200 · פתוח 202×150, ראש 117 ס״מ (גם 140/180)', store:'ACE (מוכר חיצוני)', pickup:'כן — איסוף עצמי חינם',
+            image:'ace-sol-bed.jpg', leadTime:'14 ימי עסקים (הכי מהיר)', price:'₪1,932 במבצע (רגיל ₪2,280)', delivery:'משלוח + הרכבה ₪350', size:'160×200 · פתוח 202×150, ראש 117 ס״מ (גם 140/180)', store:'ACE (מוכר חיצוני)', pickup:'כן — איסוף עצמי חינם', phone:'079-3002400 (ACE)',
             link:'https://www.ace.co.il/4417748' },
           { ref:true, badge:'רהיטי הסיטי', name:'מיטה דגם מעיין — שמנת (+ מזרן מתנה)',
             note:'מרופדת בבד רחיץ, ראש מיטה 110 ס״מ, אחריות 5 שנים. ⚠ אספקה איטית מאוד — לא עומדת בדדליין. איסוף עצמי מהיר יותר.',
-            image:'rcity-bed.jpg', leadTime:'50–55 ימי עסקים (איטי ⚠)', price:'₪1,890 (כולל מזרן מתנה)', delivery:'משלוח בכפוף למלאי', size:'למזרן 140/190 = 157×202 ס״מ (גם 120/160/180)', store:'רהיטי הסיטי (RCity)', pickup:'כן — ממחסן בבקעת הירדן, 1–2 ימי עסקים בתיאום',
+            image:'rcity-bed.jpg', leadTime:'50–55 ימי עסקים (איטי ⚠)', price:'₪1,890 (כולל מזרן מתנה)', delivery:'משלוח בכפוף למלאי', size:'למזרן 140/190 = 157×202 ס״מ (גם 120/160/180)', store:'רהיטי הסיטי (RCity)', pickup:'כן — ממחסן בבקעת הירדן, 1–2 ימי עסקים בתיאום', phone:'*8100 (רהיטי הסיטי)',
             link:'https://www.rcity.co.il/product/%D7%9E%D7%99%D7%98%D7%94-%D7%93%D7%92%D7%9D-%D7%9E%D7%A2%D7%99%D7%99%D7%9F-%D7%A9%D7%9E%D7%A0%D7%AA-%D7%9E%D7%96%D7%A8%D7%9F-%D7%9E%D7%AA%D7%A0%D7%94/' },
           { ref:true, badge:'טורקיז', name:'מיטה זוגית מעור דגם מריוט (MARRIOTT)',
             note:'📞 לברר בטורקיז (בית יצחק): (1) אפשר בלא-עור, אוף-וויט או שחור? (2) זמן אספקה הכי מהיר? מק״ט 1119058.',
-            image:'turkiz-bed.jpg', leadTime:'עד 15 ימי עסקים (לאמת מהיר יותר)', price:'לברר בטלפון', delivery:'משלוח ארצי בתוספת תשלום', size:'180×200 (King)', store:'טורקיז, בית יצחק', pickup:'לברר בטלפון',
+            image:'turkiz-bed.jpg', leadTime:'עד 15 ימי עסקים (לאמת מהיר יותר)', price:'לברר בטלפון', delivery:'משלוח ארצי בתוספת תשלום', size:'180×200 (King)', store:'טורקיז, בית יצחק', pickup:'לברר בטלפון', phone:'09-8655544 (טורקיז)',
             link:'https://www.turkiz.net/product/%D7%9E%D7%99%D7%98%D7%94-%D7%96%D7%95%D7%92%D7%99%D7%AA-%D7%9E%D7%A2%D7%95%D7%A8-%D7%9E%D7%A8%D7%99%D7%95%D7%98/' }
         ]
       }
     ]
   },
   {
-    id:'living', num:'02', title:'סלון — ספה + כיסאות בר', desc:'בשלב זה רק ספה וכיסאות בר. שאר הסלון (ספת אהבה, שטיח) — בהמשך.',
+    id:'living', num:'02', title:'סלון — ספה', desc:'בשלב זה רק הספה. שאר הסלון (ספת אהבה, שטיח) — בהמשך.',
     items:[
       {
         icon:'sofa', title:'ספה — צ׳סטרפילד בירוק/אוף-וויט', sub:'המטרה: בדיוק הדגם הזה — בירוק או אוף-וויט (לא חום), באספקה הכי מהירה. ⭐ פאלאס גלריה בהרצל 32 = הכי מהיר (1–14 יום).',
@@ -419,32 +420,18 @@ const DATA = [
         options:[
           { ref:true, badge:'⭐ הכי מהיר · הרצל תל אביב', name:'פאלאס גלריה — צ׳סטרפילד בהתאמה אישית, ירוק/אוף-וויט',
             note:'✅ הפתרון לדרישה שלך: מפעל בית מלאכה בהרצל 32 תל אביב, מייצר צ׳סטרפילד “בדיוק” מתמונה, בכל צבע קטיפה/בד — כולל ירוק ואוף-וויט. 📞/WhatsApp 052-3914344 · galit1hakim@gmail.com. 25% מקדמה, 75% באספקה.',
-            image:'palace-sofa.jpg', leadTime:'1–14 ימי עסקים (מאומת — הכי מהיר)', price:'לפי הצעת מחיר (התאמה אישית)', delivery:'משלוח ארצי (לתאם)', size:'לפי המידה שלך בדיוק (מותאם אישית)', store:'פאלאס גלריה · הרצל 32 ת״א', pickup:'כן — מהרצל 32 (לתאם)',
+            image:'palace-sofa.jpg', leadTime:'1–14 ימי עסקים (מאומת — הכי מהיר)', price:'לפי הצעת מחיר (התאמה אישית)', delivery:'משלוח ארצי (לתאם)', size:'לפי המידה שלך בדיוק (מותאם אישית)', store:'פאלאס גלריה · הרצל 32 ת״א', pickup:'כן — מהרצל 32 (לתאם)', phone:'052-3914344 (טל/WhatsApp · גלית)',
             link:'https://www.palace-g.co.il' },
           { ref:true, badge:'הדגם הרצוי · בננה שופס', name:'צ׳סטרפילד דגם אוריאן — תלת מושבית',
             note:'זה בדיוק הדגם — זמין בירוק ובאוף-וויט (בד SONA, ~68 גוונים). ⚠ 28 ימי עסקים — איטי יותר מפאלאס. רגליים V שחור/זהב (חינם). טל׳ 04-9031601.',
-            image:'banana-orion.jpg', leadTime:'28 ימי עסקים (⚠ איטי)', price:'₪3,790', delivery:'הובלה + הרכבה ₪300 (מזומן למוביל)', size:'רוחב 200 × עומק 90 · גובה מושב 45 ס״מ', store:'Banana Shops · קיסריה', pickup:'כן — לשם 11 קיסריה, א׳–ה׳ 09:00–15:00 (בתיאום 24 ש׳)',
+            image:'banana-orion.jpg', leadTime:'28 ימי עסקים (⚠ איטי)', price:'₪3,790', delivery:'הובלה + הרכבה ₪300 (מזומן למוביל)', size:'רוחב 200 × עומק 90 · גובה מושב 45 ס״מ', store:'Banana Shops · קיסריה', pickup:'כן — לשם 11 קיסריה, א׳–ה׳ 09:00–15:00 (בתיאום 24 ש׳)', phone:'04-9031601 (Banana Shops)',
             link:'https://www.bananashops.co.il/items/7060301-CHESTERFIELD-%D7%A1%D7%A4%D7%94-%D7%AA%D7%9C%D7%AA-%D7%9E%D7%95%D7%A9%D7%91%D7%99%D7%AA-%D7%A6-%D7%A1%D7%98%D7%A8%D7%A4%D7%99%D7%9C%D7%93-%D7%93%D7%92%D7%9D-%D7%90%D7%95%D7%A8%D7%99%D7%90%D7%9F' },
           { ref:true, badge:'מנזנה · התמונה שצירפת', name:'Manzana “Rainbow” — קטיפה דו-מושבית, ירוק מנטה',
             note:'הספה שצירפת — קפיטונאז קטיפה, ירוק מנטה (הצבע המוצג). אין הרכבה. צבע/מידה בהתאמה — לפנות למנזנה. שוורום: ערער 1 פרדס חנה.',
-            image:'manzana-rainbow-sofa.jpg', leadTime:'14–30 ימי עסקים', price:'₪5,611 במבצע (רגיל ₪7,482)', delivery:'הובלה חינם (מעל קומה 3 בלי מעלית +₪50/קומה)', size:'אורך 200–320 · עומק 90/100 · מושב 45 ס״מ', store:'Manzana — פרדס חנה', pickup:'לא — משלוח בלבד',
+            image:'manzana-rainbow-sofa.jpg', leadTime:'14–30 ימי עסקים', price:'₪5,611 במבצע (רגיל ₪7,482)', delivery:'הובלה חינם (מעל קומה 3 בלי מעלית +₪50/קומה)', size:'אורך 200–320 · עומק 90/100 · מושב 45 ס״מ', store:'Manzana — פרדס חנה', pickup:'לא — משלוח בלבד', phone:'077-2201133 · manzanaltd@gmail.com',
             link:'https://manzana.co.il/products/rainbow' },
           { find:true, name:'למצוא — חלופה מהירה במלאי (גיבוי)',
             note:'אם פאלאס לא זמין — להציג חלופת קטיפה ירוקה במלאי עם אספקה מהירה. ❗ רק דגם צ׳סטרפילד זהה — לא עור חום.' }
-        ]
-      },
-      {
-        icon:'chair', title:'2 כיסאות בר', sub:'זוג כיסאות בר — סגנון תעשייתי לדלפק, אספקה מהירה',
-        refCount:2, findCount:0,
-        options:[
-          { ref:true, badge:'★ מהיר · הום סנטר', name:'הום סנטר — כיסא בר לוקה, מראה מתכת תעשייתי',
-            note:'עיצוב תעשייתי על-זמני, נערם בקלות, ללא תחזוקה. מתאים לדלפק/מטבח. מלאי בסניפים — איסוף היום. להזמין 2.',
-            image:'homecenter-barchair.jpg', leadTime:'מיידי (מלאי בסניפים)', price:'₪99.90 ליחידה (₪199.80 לזוג)', delivery:'₪58 לפריט (או איסוף מסניף)', size:'גובה 65 × רוחב 38 × עומק 38 ס״מ', store:'הום סנטר', pickup:'כן — איסוף מסניף',
-            link:'https://www.homecenter.co.il/products/1707817443784' },
-          { ref:true, badge:'חלופה · IKEA', name:'IKEA DALFRED — כיסא בר שחור, מתכוונן',
-            note:'עיצוב תעשייתי שחור, גובה מתכוונן 63–74 ס״מ — מתאים לרוב הדלפקים. מלאי בסניפים. להזמין 2.',
-            image:'ikea-dalfred.jpg', leadTime:'מיידי (מלאי בסניפים)', price:'₪225 ליחידה (₪450 לזוג)', delivery:'איסוף עצמי / משלוח IKEA', size:'גובה מתכוונן 63–74 ס״מ', store:'IKEA', pickup:'כן — איסוף מסניף',
-            link:'https://www.ikea.com/il/he/cat/bar-stools-chairs-20864/' }
         ]
       }
     ]
@@ -463,7 +450,7 @@ const DATA = [
     ]
   },
   {
-    id:'others', num:'04', title:'משימות נוספות', desc:'מגהץ (רכישה מהירה) + Amy תליית טלוויזיה (לא בסלון!).',
+    id:'others', num:'04', title:'משימות נוספות', desc:'Amy — תליית טלוויזיה (לא בסלון עדיין!).',
     items:[
       {
         icon:'tv', title:'Amy — תליית טלוויזיה', sub:'עדיפות 2 — לא לתלות בסלון עדיין!',
@@ -472,20 +459,6 @@ const DATA = [
           { find:true, name:'Amy — לתאם מועד תלייה', note:'לתאם עם Amy. לוודא סוג קיר ומתלה. ❗ לא לתלות את הטלוויזיה של הסלון בשלב זה.' }
         ]
       },
-      {
-        icon:'iron', title:'מגהץ', sub:'עדיפות 4 — רכישה מהירה, איסוף חינם זמין',
-        refCount:2, findCount:0,
-        options:[
-          { ref:true, badge:'★ זול · ACE', name:'ACE — מגהץ אדים דגם 300308, 3000W',
-            note:'פלטה קרמית XL, עוצמת קיטור עד 140 ג׳/דקה, כיבוי אוטומטי, ניקוי עצמי, מיכל 400 מ״ל. זול — איסוף עצמי חינם תוך 7 ימי עסקים.',
-            image:'ace-iron.png', leadTime:'עד 7 ימי עסקים (איסוף)', price:'₪39', delivery:'איסוף עצמי חינם (או משלוח)', size:'מגהץ אדים ביתי · 3000W', store:'ACE', pickup:'כן — איסוף מסניף חינם',
-            link:'https://www.ace.co.il/7001246' },
-          { ref:true, badge:'חלופה · Philips', name:'Philips DST3041/80 — מגהץ אדים 2600W',
-            note:'סוליה קרמית חלקה, מכת קיטור עד 200 ג׳, קיטור רציף, כיבוי אוטומטי, מיכל 300 מ״ל. יבואן רשמי, משלוח מהיר.',
-            image:'philips-iron.jpg', leadTime:'משלוח מהיר', price:'~₪199', delivery:'משלוח עד הבית', size:'מגהץ אדים · 2600W', store:'זאפ / חנויות חשמל', pickup:'לפי החנות',
-            link:'https://www.zap.co.il/models.aspx?sog=e-iron&db7400939=7401609&db2961=129554' }
-        ]
-      }
     ]
   }
 ];
@@ -522,6 +495,7 @@ function optionCard(o, isService){
       ${specRow('size',sizeLabel, o.size)}
       ${specRow('store', isService?'ספק / בעל מקצוע':'חנות', o.store)}
       ${specRow('pickup','איסוף עצמי + מתי', o.pickup, o.pickup ? '' : '')}
+      ${specRow('phone','טלפון ליצירת קשר', o.phone, 'full')}
     </div>`;
 
   const link = o.link
