@@ -311,10 +311,26 @@
   </div>
 </div>
 
+<!-- TOP PRIORITIES -->
+<div class="legend" style="margin-top:30px">
+  <div class="lg" style="background:#1b1b1b;color:#fff;border-color:#333;font-weight:700">🔥 עדיפות עליונה השבוע</div>
+</div>
+<div class="goal" style="margin-top:14px">
+  <div class="goal-card" style="display:block">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px">
+      <div style="background:var(--find-soft);border:1px solid #f0d9b3;border-radius:12px;padding:14px 16px"><b style="color:var(--find)">1 · לתקן ספה/כיסא במרפסת</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">תיקון הפריט הקיים בחוץ</div></div>
+      <div style="background:var(--find-soft);border:1px solid #f0d9b3;border-radius:12px;padding:14px 16px"><b style="color:var(--find)">2 · Amy — תליית טלוויזיה</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">לא לתלות בסלון עדיין!</div></div>
+      <div style="background:var(--ref-soft);border:1px solid #bfe0db;border-radius:12px;padding:14px 16px"><b style="color:var(--ref)">3 · להזמין מיטה</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">המזרן כבר קיים</div></div>
+      <div style="background:var(--ref-soft);border:1px solid #bfe0db;border-radius:12px;padding:14px 16px"><b style="color:var(--ref)">4 · להזמין מגהץ</b><div style="font-size:13px;color:var(--muted-text);margin-top:3px">רכישה מהירה</div></div>
+    </div>
+    <div style="margin-top:14px;font-size:13.5px;color:var(--muted-text)">סלון: בשלב זה רק <b>ספה</b> ו<b>כיסאות בר</b>. שאר הסלון — בהמשך.</div>
+  </div>
+</div>
+
 <!-- LEGEND -->
 <div class="legend">
   <div class="lg"><span class="swatch sw-ref"></span> אפשרות ייחוס — סופקה על ידי המזמין</div>
-  <div class="lg"><span class="swatch sw-find"></span> למצוא היום — לחיפוש והשלמה על ידי העוזרת</div>
+  <div class="lg"><span class="swatch sw-find"></span> למצוא / לאמת — פעולה של העוזרת</div>
   <div class="lg">📐 כל השדות חובה: אספקה · מחיר · משלוח · מידות · חנות · איסוף · תמונה</div>
 </div>
 
@@ -372,101 +388,88 @@ const SPEC_ICONS = {
 
 const DATA = [
   {
-    id:'bedroom', num:'01', title:'חדר שינה', desc:'המזרן כבר קיים — צריך להזמין מיטה בלבד.',
+    id:'bedroom', num:'01', title:'חדר שינה — מיטה', desc:'המזרן כבר קיים. 3 אפשרויות ייחוס — לאמת מחיר/מידה/אספקה ולבחור. עדיפות לאספקה הכי מהירה.',
     items:[
       {
-        icon:'bed', title:'מיטה', sub:'המזרן כבר ברשותנו — נדרשת מסגרת/בסיס מיטה בלבד',
-        refCount:0, findCount:2,
+        icon:'bed', title:'מיטה זוגית', sub:'להזמין מסגרת/בסיס בלבד — המזרן קיים. לבחור אחת מהאפשרויות:',
+        refCount:3, findCount:0,
         options:[
-          { find:true, name:'אפשרות למצוא — חנות 1', note:'לצרף קישור, תמונה ומידות שמתאימות למזרן הקיים.' },
-          { find:true, name:'אפשרות למצוא — חנות 2', note:'לצרף אפשרות משלוח/הרכבה מהירה עד חמישי.' }
+          { ref:true, badge:'רהיטי הסיטי', name:'מיטה דגם מעיין — שמנת (+ מזרן מתנה)',
+            note:'מרופדת בבד רחיץ, ראש מיטה 110 ס״מ, אחריות 5 שנים. ⚠ האספקה איטית — לא עומדת בדדליי9 השבוע. לבדוק איסוף עצמי.',
+            image:'', leadTime:'50–55 ימי עסקים (איטי)', price:'₪1,890 (כולל מזרן מתנה)', delivery:'משלוח בכפוף למלאי', size:'למזרן 140/190 = 157×202 ס״מ (גם 120/160/180)', store:'רהיטי הסיטי (RCity)', pickup:'כן — ממחסן בבקעת הירדן, 1–2 ימי עסקים בתיאום',
+            link:'https://www.rcity.co.il/product/%D7%9E%D7%99%D7%98%D7%94-%D7%93%D7%92%D7%9D-%D7%9E%D7%A2%D7%99%D7%99%D7%9F-%D7%A9%D7%9E%D7%A0%D7%AA-%D7%9E%D7%96%D7%A8%D7%9F-%D7%9E%D7%AA%D7%A0%D7%94/' },
+          { ref:true, badge:'טורקיז', name:'מיטה זוגית מעור דגם מריוט (MARRIOTT)',
+            note:'📞 לברר בטורקיז (בית יצחק): (1) האם אפשר בלא-עור, בצבע אוף-וויט או שחור? (2) מה זמן האספקה הכי מהיר? מק״ט 1119058.',
+            image:'', leadTime:'עד 15 ימי עסקים (לאמת מהיר יותר)', price:'לברר בטלפון', delivery:'משלוח ארצי בתוספת תשלום', size:'180×200 (King)', store:'טורקיז, בית יצחק', pickup:'לברר בטלפון',
+            link:'https://www.turkiz.net/product/%D7%9E%D7%99%D7%98%D7%94-%D7%96%D7%95%D7%92%D7%99%D7%AA-%D7%9E%D7%A2%D7%95%D7%A8-%D7%9E%D7%A8%D7%99%D7%95%D7%98/' },
+          { ref:true, badge:'מנזנה · התאמה אישית', name:'מיטה מנזנה — ירוק בהיר (מנטה)',
+            note:'📞 חובה לברר במנזנה (התאמה אישית): תאריך אספקה מדויק, מידה מדויקת, מחיר מדויק. שוורום: ערער 1, פרדס חנה · manzanaltd@gmail.com.',
+            image:'', leadTime:'לברר (התאמה אישית)', price:'לברר', delivery:'לברר', size:'לברר (למזרן הקיים)', store:'Manzana — פרדס חנה', pickup:'לברר',
+            link:'https://manzana.co.il/collections/%D7%A8%D7%94%D7%99%D7%98%D7%99%D7%9D-%D7%9C%D7%A1%D7%9C%D7%95%D7%9F' }
         ]
       }
     ]
   },
   {
-    id:'living', num:'02', title:'סלון', desc:'ספה גדולה בסגנון בר הספרייה במלון נורמן ת״א, ספת אהבה, 2 כיסאות בר ושטיח גדול.',
+    id:'living', num:'02', title:'סלון — ספה + כיסאות בר', desc:'בשלב זה רק ספה וכיסאות בר. שאר הסלון (ספת אהבה, שטיח) — בהמשך.',
     items:[
       {
-        icon:'sofa', title:'ספה גדולה', sub:'בסגנון Library Bar במלון נורמן, תל אביב — קטיפה עשירה, קווים קלאסיים',
-        refCount:0, findCount:2,
+        icon:'sofa', title:'ספה — צ׳סטרפילד בירוק/אוף-וויט', sub:'המטרה: בדיוק הדגם הזה — בירוק או אוף-וויט (לא חום), באספקה הכי מהירה',
+        refCount:2, findCount:2,
         options:[
-          { find:true, name:'אפשרות למצוא — התאמה לסגנון נורמן', note:'קטיפה/בד עשיר, גוון עמוק, מושב עמוק. לצרף תמונה ומידות.' },
-          { find:true, name:'אפשרות למצוא — חלופה', note:'חלופה זמינה במלאי עם אספקה מהירה.' }
-        ]
-      },
-      {
-        icon:'loveseat', title:'ספת אהבה (Love Seat)', sub:'זוגית קטנה, תואמת לספה הגדולה',
-        refCount:0, findCount:2,
-        options:[
-          { find:true, name:'אפשרות למצוא — חנות 1', note:'לוודא התאמת גוון/סגנון לספה הגדולה.' },
-          { find:true, name:'אפשרות למצוא — חנות 2', note:'' }
+          { ref:true, badge:'הדגם הרצוי', name:'צ׳סטרפילד דגם אוריאן — תלת מושבית',
+            note:'זה בדיוק הדגם שאני רוצה — אבל בירוק או אוף-וויט, לא חום. 📞 לאמת בבננה שופס: מחיר מדויק, מידות מדויקות, צבעים, וזמן אספקה מאומת.',
+            image:'', leadTime:'לאמת בטלפון', price:'לאמת', delivery:'לאמת', size:'לאמת (רוחב×עומק×גובה)', store:'Banana Shops', pickup:'לאמת',
+            link:'https://www.bananashops.co.il/items/7060301-CHESTERFIELD-%D7%A1%D7%A4%D7%94-%D7%AA%D7%9C%D7%AA-%D7%9E%D7%95%D7%A9%D7%91%D7%99%D7%AA-%D7%A6-%D7%A1%D7%98%D7%A8%D7%A4%D7%99%D7%9C%D7%93-%D7%93%D7%92%D7%9D-%D7%90%D7%95%D7%A8%D7%99%D7%90%D7%9F' },
+          { ref:true, badge:'מנזנה · התמונה שצירפת', name:'Manzana “Rainbow” — קטיפה דו-מושבית, ירוק מנטה',
+            note:'הספה שצירפת — קפיטונאז, רגלי זהב. 📞 חובה לברר במנזנה: תאריך אספקה מדויק, מידה, מחיר מדויק. שוורום: ערער 1 פרדס חנה.',
+            image:'manzana-rainbow-sofa.jpg', leadTime:'לברר (התאמה אישית)', price:'לברר (במבצע Sale)', delivery:'לברר', size:'לברר', store:'Manzana — פרדס חנה', pickup:'לברר',
+            link:'https://manzana.co.il/collections/%D7%A1%D7%A4%D7%95%D7%AA-%D7%9E%D7%A2%D7%95%D7%A6%D7%91%D7%95%D7%AA' },
+          { find:true, name:'למצוא — יצרן ברח׳ הרצל תל אביב שמעתיק את הדגם מהר מ-28 יום',
+            note:'למצוא בית מלאכה/יצרן מאומת ברח׳ הרצל תל אביב (או אחר) שמייצר בדיוק צ׳סטרפילד זהה, בירוק/אוף-וויט, בפחות מ-28 יום. ❗ רק הדגם המדויק — לא “רוזווד עור חום” וכ׳. לצרף תאריך אספקה מאומת.' },
+          { find:true, name:'למצוא — חלופה מהירה במלאי (דוגמה: Riviera ירוק 14 יום)',
+            note:'אם אי-אפשר להשיג צ׳סטרפילד זהה מהר — להציג חלופת קטיפה ירוקה במלאי עם אספקה מהירה (למשל betili “Riviera” 240 ס״מ ירוק, 14 ימי עסקים).' }
         ]
       },
       {
         icon:'chair', title:'2 כיסאות בר', sub:'זוג כיסאות בר — לציין גובה מושב מתאים לדלפק',
         refCount:0, findCount:2,
         options:[
-          { find:true, name:'אפשרות למצוא — זוג כיסאות בר', note:'לציין גובה מושב (ס״מ) ומחיר ליחידה/לזוג.' },
-          { find:true, name:'אפשרות למצוא — חלופה', note:'' }
-        ]
-      },
-      {
-        icon:'rug', title:'שטיח גדול', sub:'שטיח סלון גדול — לציין מידות מדויקות',
-        refCount:0, findCount:2,
-        options:[
-          { find:true, name:'אפשרות למצוא — חנות 1', note:'לציין מידה מדויקת (למשל 200×300 ס״מ) וחומר.' },
-          { find:true, name:'אפשרות למצוא — חנות 2', note:'' }
+          { find:true, name:'למצוא — זוג כיסאות בר (חנות 1)', note:'לציין גובה מושב (ס״מ) ומחיר ליחידה/לזוג, אספקה מהירה.' },
+          { find:true, name:'למצוא — חלופה (חנות 2)', note:'' }
         ]
       }
     ]
   },
   {
-    id:'balcony', num:'03', title:'מרפסת', desc:'תיקון נדנדת האהבה הקיימת + הוספת ריהוט מרפסת.',
+    id:'balcony', num:'03', title:'מרפסת — עדיפות!', desc:'עדיפות עליונה: תיקון הספה/כיסא הקיימים בחוץ.',
     items:[
       {
-        icon:'swing', title:'תיקון נדנדת אהבה קיימת', sub:'שירות תיקון — לא רכישה. לצרף בעל מקצוע/ספק שירות',
+        icon:'swing', title:'תיקון ספה/כיסא במרפסת (קיים)', sub:'עדיפות 1 — שירות תיקון, לא רכישה',
         refCount:0, findCount:2, service:true,
         options:[
-          { find:true, name:'אפשרות למצוא — נותן שירות תיקון', note:'לתאם מועד הגעה, עלות והאם דרושים חלקים.' },
-          { find:true, name:'אפשרות למצוא — חלופה', note:'' }
-        ]
-      },
-      {
-        icon:'plant', title:'ריהוט מרפסת נוסף', sub:'להוסיף פריטים למרפסת — כיסאות/שולחן/מזרנים לפי הצורך',
-        refCount:0, findCount:2,
-        options:[
-          { find:true, name:'אפשרות למצוא — סט/פריט מרפסת', note:'עמיד לחוץ, לציין מידות ומחיר.' },
-          { find:true, name:'אפשרות למצוא — חלופה', note:'' }
+          { find:true, name:'למצוא — נותן שירות תיקון', note:'לתאם מועד הגעה השבוע, עלות, והאם דרושים חלקים.' },
+          { find:true, name:'למצוא — חלופה', note:'' }
         ]
       }
     ]
   },
   {
-    id:'others', num:'04', title:'משימות נוספות — מהיר', desc:'הזמנת מגהץ + שירותי הרכבה: תליית טלוויזיה והרכבת פסנתר.',
+    id:'others', num:'04', title:'משימות נוספות', desc:'מגהץ (רכישה מהירה) + Amy תליית טלוויזיה (לא בסלון!).',
     items:[
       {
-        icon:'iron', title:'מגהץ / מגהץ אדים', sub:'רכישה מהירה — לציין דגם, מחיר ואספקה',
+        icon:'tv', title:'Amy — תליית טלוויזיה', sub:'עדיפות 2 — לא לתלות בסלון עדיין!',
+        refCount:0, findCount:1, service:true,
+        options:[
+          { find:true, name:'Amy — לתאם מועד תלייה', note:'לתאם עם Amy. לוודא סוג קיר ומתלה. ❗ לא לתלות את הטלוויזיה של הסלון בשלב זה.' }
+        ]
+      },
+      {
+        icon:'iron', title:'מגהץ', sub:'עדיפות 4 — רכישה מהירה',
         refCount:0, findCount:2,
         options:[
-          { find:true, name:'אפשרות למצוא — חנות 1', note:'עדיפות למשלוח מהיר או איסוף היום.' },
-          { find:true, name:'אפשרות למצוא — חנות 2', note:'' }
-        ]
-      },
-      {
-        icon:'tv', title:'תליית טלוויזיה (הנדימן)', sub:'שירות התקנה — לצרף בעל מקצוע ומועד',
-        refCount:0, findCount:2, service:true,
-        options:[
-          { find:true, name:'אפשרות למצוא — הנדימן לתליית TV', note:'לוודא סוג קיר ומתלה מתאים, לתאם מועד עד חמישי.' },
-          { find:true, name:'אפשרות למצוא — חלופה', note:'' }
-        ]
-      },
-      {
-        icon:'piano', title:'הרכבת פסנתר (הנדימן)', sub:'שירות הרכבה — לצרף בעל מקצוע ומועד',
-        refCount:0, findCount:2, service:true,
-        options:[
-          { find:true, name:'אפשרות למצוא — הנדימן להרכבת פסנתר', note:'לתאם מועד ועלות, לוודא ניסיון עם פסנתרים.' },
-          { find:true, name:'אפשרות למצוא — חלופה', note:'' }
+          { find:true, name:'למצוא — מגהץ (חנות 1)', note:'עדיפות למשלוח מהיר או איסוף היום.' },
+          { find:true, name:'למצוא — חלופה (חנות 2)', note:'' }
         ]
       }
     ]
